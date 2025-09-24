@@ -290,7 +290,8 @@
                     </a>
                 </div>
 
-                <form id="contactForm" class="max-w-xl mx-auto text-left">
+                <form id="contactForm" class="max-w-xl mx-auto text-left" action="https://api.web3forms.com/submit" method="POST">
+                   <input type="hidden" name="access_key" value="73085df5-13ef-40de-be84-cd7cf36d0218"> 
                     <div class="mb-4">
                         <label for="name" class="block mb-2 font-semibold text-base md:text-lg">Имя</label>
                         <input type="text" id="name" name="name" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-500" required>
@@ -325,9 +326,7 @@
                     </div>
 
                     <div class="text-center">
-                    <a href="mailto:jsec79097794284@gmail.com">
                         <button type="button" class="px-8 py-3 md:px-12 md:py-4 font-semibold rounded-md transition-transform duration-300 transform hover:scale-105" style="background-color: var(--color-accent); color: white;">Отправить Запрос</button>
-                   </a>
                     </div>
                 </form>
                 <div id="form-message" class="mt-4 text-lg hidden"></div>
@@ -563,6 +562,7 @@
     </script>
 </body>
 </html>
+
 
 
 
