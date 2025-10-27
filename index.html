@@ -6,23 +6,23 @@
     <title>К-М | Безупречный сервис и абсолютная конфиденциальность</title>
     <meta name="description" content="К-М предоставляет безупречный сервис, деловой арбитраж, курьерский протокол и VIP-сопровождение. Полная конфиденциальность и надёжность для ваших самых деликатных задач.">
     <meta name="keywords" content="К-М, континенталь, агент, конфиденциальность, деловой арбитраж, курьерский протокол, VIP сопровождение, услуги агента, Москва-Китай, безупречный сервис, частные поручения">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://github.com/jsec79097794284-ui/km.git/" />
-    
+
     <!-- Open Graph for social media -->
     <meta property="og:title" content="К-М | Безупречный сервис и абсолютная конфиденциальность">
     <meta property="og:description" content="К-М предоставляет безупречный сервис, деловой арбитраж, курьерский протокол и VIP-сопровождение. Полная конфиденциальность и надёжность для ваших самых деликатных задач.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://github.com/jsec79097794284-ui/km.git/">
     <meta property="og:image" content="https://github.com/jsec79097794284-ui/km.git/logo.png">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="К-М | Безупречный сервис и абсолютная конфиденциальность">
     <meta name="twitter:description" content="К-М предоставляет безупречный сервис, деловой арбитраж, курьерский протокол и VIP-сопровождение. Полная конфиденциальность и надёжность для ваших самых деликатных задач.">
     <meta name="twitter:image" content="https://github.com/jsec79097794284-ui/km.git/logo.png">
-    
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -55,7 +55,7 @@
       ]
     }
     </script>
-    
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -69,7 +69,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/104223685" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,6 +121,68 @@
                 margin-bottom: 0.5rem;
             }
         }
+
+        /* Styles for Carousel */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .review-card {
+            flex: 0 0 100%; /* Each card takes up 100% of the container width */
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #1a1a1a; /* Darker background for card */
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 0.5rem;
+            margin-right: 1rem; /* Space between cards */
+        }
+        .review-card:last-child {
+            margin-right: 0;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 10;
+            border-radius: 9999px; /* rounded-full */
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .carousel-control:hover {
+            background-color: rgba(212, 175, 55, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .carousel-control.prev {
+            left: 1rem;
+        }
+        .carousel-control.next {
+            right: 1rem;
+        }
+        .carousel-dots {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: var(--color-secondary);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -136,6 +198,7 @@
                 <a href="#videovizitka" class="text-gray-300 hover:text-white transition-colors duration-300 text-base">Видео</a>
                 <a href="#pricing" class="text-gray-300 hover:text-white transition-colors duration-300 text-base">Тарифы</a>
                 <a href="#discounts" class="text-gray-300 hover:text-white transition-colors duration-300 text-base">Скидки</a>
+                <a href="#reviews" class="text-gray-300 hover:text-white transition-colors duration-300 text-base">Отзывы</a> <!-- Added link to reviews -->
                 <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 text-base">Контакты</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
@@ -151,6 +214,7 @@
                 <a href="#videovizitka" class="block py-2 text-gray-300 hover:text-white transition-colors duration-300 text-center">Видео</a>
                 <a href="#pricing" class="block py-2 text-gray-300 hover:text-white transition-colors duration-300 text-center">Тарифы</a>
                 <a href="#discounts" class="block py-2 text-gray-300 hover:text-white transition-colors duration-300 text-center">Скидки</a>
+                <a href="#reviews" class="block py-2 text-gray-300 hover:text-white transition-colors duration-300 text-center">Отзывы</a> <!-- Added link to reviews -->
                 <a href="#contact" class="block py-2 text-gray-300 hover:text-white transition-colors duration-300 text-center">Контакты</a>
             </div>
         </div>
@@ -225,9 +289,8 @@
         <section id="videovizitka" class="py-16 md:py-20 bg-black">
             <div class="container mx-auto px-4 md:px-8 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12" style="color: var(--color-secondary);">Видеовизитка</h2>
-                <p class="max-w-3xl mx-auto text-gray-400 mb-8 md:mb-12 text-base md:text-lg">Посмотрите, как мы работаем, и узнайте больше о нашем подходе к делу, где каждое поручение — это вызов, требующий профессионализма и внимания к деталям.</p>
+                <p class="max-w-3xl mx-auto text-gray-400 mb-8 md:mb-12 text-base md:text-lg">Узнайте больше о нашем подходе к делу, где каждое поручение — это вызов, требующий профессионализма и внимания к деталям.</p>
                 <div class="relative overflow-hidden rounded-lg shadow-xl w-full max-w-4xl mx-auto" style="padding-top: 56.25%;">
-                    <!-- Ссылка на YouTube уже исправлена -->
                     <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/SazoLnAvuRY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
@@ -237,7 +300,7 @@
             <div class="container mx-auto px-4 md:px-8 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-secondary);">Тарифные планы</h2>
                 <p class="max-w-3xl mx-auto text-gray-400 mb-8 md:mb-12 text-base md:text-lg">Мы предлагаем несколько вариантов обслуживания. Выберите тот, который наилучшим образом соответствует вашим задачам.</p>
-                
+
                 <div id="tabs" class="flex flex-col sm:flex-row justify-center space-x-0 sm:space-x-2 md:space-x-4 mb-8">
                     <button data-tab="tab1" class="tab-button px-4 py-2 md:px-6 md:py-3 rounded-md font-semibold transition-colors duration-300 tab-active">Базовый пакет</button>
                     <button data-tab="tab2" class="tab-button px-4 py-2 md:px-6 md:py-3 rounded-md font-semibold transition-colors duration-300 tab-inactive">Пакет "Всё включено"</button>
@@ -254,7 +317,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="discounts" class="py-16 md:py-20">
             <div class="container mx-auto px-4 md:px-8 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12" style="color: var(--color-secondary);">Специальные предложения</h2>
@@ -274,11 +337,74 @@
             </div>
         </section>
 
+        <!-- START: Отзывы (Reviews Section) -->
+        <section id="reviews" class="py-16 md:py-20 bg-gray-900">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" style="color: var(--color-secondary);">Отзывы о Нас</h2>
+
+                <div class="carousel-container max-w-4xl mx-auto relative">
+                    <!-- Carousel Track -->
+                    <div id="reviews-track" class="carousel-track">
+                        <!-- Отзыв 1 -->
+                        <div class="review-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-xl font-bold" style="color: var(--color-secondary);">Иван А.</div>
+                                <span class="mx-3 text-gray-500">|</span>
+                                <div class="text-gray-400 text-sm">Москва, Россия</div>
+                            </div>
+                            <p class="text-gray-300 italic text-base md:text-lg leading-relaxed">"Безупречный сервис! Поручение по доставке конфиденциальных документов было выполнено в кратчайшие сроки, без единого вопроса и точно по протоколу. Полная анонимность, как и обещали. Крайне рекомендую К-М для деликатных задач."</p>
+                        </div>
+                        <!-- Отзыв 2 -->
+                        <div class="review-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-xl font-bold" style="color: var(--color-secondary);">Айнур Т.</div>
+                                <span class="mx-3 text-gray-500">|</span>
+                                <div class="text-gray-400 text-sm">Алматы, Казахстан</div>
+                            </div>
+                            <p class="text-gray-300 italic text-base md:text-lg leading-relaxed">"Воспользовались услугой 'Гостеприимство' для нашего иностранного партнера. Трансфер и сопровождение были организованы на высшем уровне. Профессионализм агента снял с нас все заботы. Партнер был впечатлен уровнем сервиса."</p>
+                        </div>
+                        <!-- Отзыв 3 -->
+                        <div class="review-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-xl font-bold" style="color: var(--color-secondary);">Дмитрий С.</div>
+                                <span class="mx-3 text-gray-500">|</span>
+                                <div class="text-gray-400 text-sm">Санкт-Петербург, Россия</div>
+                            </div>
+                            <p class="text-gray-300 italic text-base md:text-lg leading-relaxed">"Благодаря агенту К-М удалось решить сложный вопрос с представительством на переговорах. Услуга 'Бюрократ' - это не просто представитель, это настоящий арбитр. Результат превзошел все ожидания. Надёжно и эффективно."</p>
+                        </div>
+                         <!-- Отзыв 4 -->
+                        <div class="review-card">
+                            <div class="flex items-center mb-4">
+                                <div class="text-xl font-bold" style="color: var(--color-secondary);">Елена П.</div>
+                                <span class="mx-3 text-gray-500">|</span>
+                                <div class="text-gray-400 text-sm">Минск, Беларусь</div>
+                            </div>
+                            <p class="text-gray-300 italic text-base md:text-lg leading-relaxed">"Сотрудничество с К-М по логистическому протоколу - это гарантия спокойствия. Груз был доставлен из Москвы в срок и в полной сохранности. Работают как швейцарские часы. Спасибо за вашу точность!"</p>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button id="prev-review" class="carousel-control prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-review" class="carousel-control next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Carousel Dots -->
+                <div id="carousel-dots" class="carousel-dots">
+                    <!-- Dots will be added by JS -->
+                </div>
+            </div>
+        </section>
+        <!-- END: Отзывы (Reviews Section) -->
+
         <section id="contact" class="pt-16 md:pt-20 pb-8 md:pb-10">
             <div class="container mx-auto px-4 md:px-8 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--color-secondary);">Связь с Агентом</h2>
                 <p class="max-w-3xl mx-auto text-gray-400 mb-8 text-base md:text-lg">Для уточнения срока выполнения и стоимости заказа свяжитесь с нами одним из способов ниже или оставьте в форме заявку на любую услугу.</p>
-                
+
                 <div class="mt-2 text-sm md:text-base flex justify-center items-center space-x-4 mb-8">
                     <!-- Теперь href пустой, чтобы избежать неработающих ссылок, пока JS не обновит их -->
                     <a id="phone-link" href="" class="inline-flex items-center justify-center p-3 rounded-md transition-transform duration-300 transform hover:scale-110" style="background-color: var(--color-accent); color: white;">
@@ -310,7 +436,7 @@
                         <label for="message" class="block mb-2 font-semibold text-base md:text-lg">Описание задачи</label>
                         <textarea id="message" name="message" rows="5" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-500" required></textarea>
                     </div>
-                    
+
                     <div class="mb-6">
                         <label for="service" class="block mb-2 font-semibold text-base md:text-lg">Вид услуги</label>
                         <select id="service" name="service" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-500" required>
@@ -321,7 +447,7 @@
                             <option value="Другое">Другое</option>
                         </select>
                     </div>
-                    
+
                     <div class="mb-6 flex items-start">
                         <input type="checkbox" id="consent" name="consent" class="mr-2 mt-1 rounded text-red-600 focus:ring-red-500" required>
                         <label for="consent" class="text-sm md:text-base text-gray-400">Я согласен на обработку моих персональных данных</label>
@@ -339,7 +465,7 @@
         </section>
 
     </main>
-    
+
     <footer class="bg-black py-8">
         <div class="container mx-auto px-4 md:px-8 text-center text-gray-500 text-base">
             <div class="mt-4 text-center text-base space-x-2 md:space-x-4">
@@ -348,20 +474,20 @@
             <p class="mt-2 text-base">&copy; 2025 К-М СИСТЕМА. Все права защищены.</p>
         </div>
     </footer>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.tab-button');
             const tabContentContainer = document.getElementById('tab-content');
-            const form = document.querySelector('form[action="https://api.web3forms.com/submit"]'); 
+            const form = document.querySelector('form[action="https://api.web3forms.com/submit"]');
             const formMessage = document.getElementById('form-message');
 
             const contactInfo = {
                 phone: '+79382229794',
-                telegram: 'https://t.me/kmecon', 
-                vk: 'https://m.vk.com/id1073965654' 
+                telegram: 'https://t.me/kmecon',
+                vk: 'https://m.vk.com/id1073965654'
             };
-            
+
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
@@ -375,6 +501,70 @@
                 });
             });
 
+            // --- Carousel Logic Start ---
+            const track = document.getElementById('reviews-track');
+            const reviews = document.querySelectorAll('.review-card');
+            const prevButton = document.getElementById('prev-review');
+            const nextButton = document.getElementById('next-review');
+            const dotsContainer = document.getElementById('carousel-dots');
+            let currentIndex = 0;
+
+            // Generate dots dynamically
+            reviews.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.dataset.index = index;
+                dotsContainer.appendChild(dot);
+                dot.addEventListener('click', () => {
+                    moveToSlide(index);
+                });
+            });
+
+            const dots = document.querySelectorAll('.dot');
+
+            function updateCarousel() {
+                // Calculate the translation required to show the current slide
+                const offset = -currentIndex * 100;
+                track.style.transform = `translateX(${offset}%)`;
+
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+
+            function moveToSlide(index) {
+                if (index >= 0 && index < reviews.length) {
+                    currentIndex = index;
+                    updateCarousel();
+                }
+            }
+
+            prevButton.addEventListener('click', () => {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) {
+                    newIndex = reviews.length - 1; // Loop to last
+                }
+                moveToSlide(newIndex);
+            });
+
+            nextButton.addEventListener('click', () => {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= reviews.length) {
+                    newIndex = 0; // Loop to first
+                }
+                moveToSlide(newIndex);
+            });
+
+            // Initial setup
+            if (reviews.length > 0) {
+                updateCarousel();
+            }
+            // --- Carousel Logic End ---
+
             const pricingData = {
                 tab1: {
                     title: 'Базовый пакет',
@@ -386,7 +576,7 @@
                     ],
                     chart: {
                         labels: ['Документы', 'Доставка', 'Трансфер'],
-                        data: [1500, 1500, 2000] 
+                        data: [1500, 1500, 2000]
                     }
                 },
                 tab2: {
@@ -416,7 +606,7 @@
                     }
                 }
             };
-            
+
             let pricingChart;
             const chartCanvas = document.getElementById('pricingChart').getContext('2d');
 
@@ -511,11 +701,11 @@
                     updateTabContent(tab.dataset.tab);
                 });
             });
-            
+
             if (form) {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    
+
                     formMessage.textContent = 'Отправка данных...';
                     formMessage.classList.remove('hidden', 'text-green-400', 'text-red-400');
                     formMessage.classList.add('text-gray-400');
@@ -523,8 +713,8 @@
                     const formData = new FormData(form);
                     const data = Object.fromEntries(formData.entries());
 
-                    const apiEndpoint = form.getAttribute('action'); 
-                    
+                    const apiEndpoint = form.getAttribute('action');
+
                     try {
                         const response = await fetch(apiEndpoint, {
                             method: 'POST',
@@ -564,12 +754,9 @@
             document.getElementById('phone-link').href = `tel:${contactInfo.phone}`;
             document.getElementById('telegram-link').href = contactInfo.telegram;
             document.getElementById('vk-link').href = contactInfo.vk;
-            
+
             updateTabContent('tab1');
         });
     </script>
 </body>
 </html>
-
-
-
